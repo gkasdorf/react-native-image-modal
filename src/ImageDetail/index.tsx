@@ -11,6 +11,7 @@ import {
   SafeAreaView,
   PanResponderInstance,
   StatusBar,
+  Easing,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import type { Source, ResizeMode, ImageStyle } from 'react-native-fast-image';
@@ -518,11 +519,28 @@ export default class ImageDetail extends React.Component<Props> {
       }
 
       Animated.parallel([
-        Animated.timing(this._animatedScale, { toValue: 1, useNativeDriver: false }),
-        Animated.timing(this._animatedPositionX, { toValue: 0, useNativeDriver: false }),
-        Animated.timing(this._animatedPositionY, { toValue: 0, useNativeDriver: false }),
-        Animated.timing(this._animatedOpacity, { toValue: windowHeight, useNativeDriver: false }),
-        Animated.spring(this._animatedFrame, { toValue: 0, useNativeDriver: false }),
+        Animated.timing(this._animatedScale, { toValue: 1, duration: 250, useNativeDriver: false }),
+        Animated.timing(this._animatedPositionX, {
+          toValue: 0,
+          duration: 250,
+          useNativeDriver: false,
+        }),
+        Animated.timing(this._animatedPositionY, {
+          toValue: 0,
+          duration: 200,
+          useNativeDriver: false,
+        }),
+        Animated.timing(this._animatedOpacity, {
+          toValue: windowHeight,
+          duration: 250,
+          useNativeDriver: false,
+        }),
+        Animated.timing(this._animatedFrame, {
+          toValue: 0,
+          duration: 250,
+          easing: Easing.out(Easing.cubic),
+          useNativeDriver: false,
+        }),
       ]).start(() => {
         onClose();
         this._isAnimated = false;
