@@ -1,6 +1,6 @@
 {
   "name": "@dreamwalk-os/react-native-image-modal",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "image fullscreen modal for react native",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
