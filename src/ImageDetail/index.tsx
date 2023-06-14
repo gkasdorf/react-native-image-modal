@@ -76,6 +76,7 @@ interface Props {
     height: number;
   };
   source: Source | number;
+  thumbnailSource?: Source | number;
   resizeMode?: ResizeMode;
   backgroundColor?: string;
   swipeToDismiss?: boolean;
@@ -606,6 +607,7 @@ export default class ImageDetail extends React.Component<Props> {
       isOpen,
       origin,
       source,
+      thumbnailSource,
       resizeMode,
       backgroundColor = '#000000',
       hideCloseButton,
@@ -724,7 +726,7 @@ export default class ImageDetail extends React.Component<Props> {
                 height: Platform.OS === 'ios' ? '100%' : windowHeight,
               },
             ]}
-            source={source}
+            source={thumbnailSource || source}
           />
         </Animated.View>
         {header}

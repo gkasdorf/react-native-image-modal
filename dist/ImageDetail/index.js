@@ -519,7 +519,7 @@ var ImageDetail = (function (_super) {
         var _this = this;
         var windowWidth = Dimensions.get('window').width;
         var windowHeight = Dimensions.get('window').height;
-        var _a = this.props, renderToHardwareTextureAndroid = _a.renderToHardwareTextureAndroid, isOpen = _a.isOpen, origin = _a.origin, source = _a.source, resizeMode = _a.resizeMode, _b = _a.backgroundColor, backgroundColor = _b === void 0 ? '#000000' : _b, hideCloseButton = _a.hideCloseButton, imageStyle = _a.imageStyle, renderHeader = _a.renderHeader, renderFooter = _a.renderFooter;
+        var _a = this.props, renderToHardwareTextureAndroid = _a.renderToHardwareTextureAndroid, isOpen = _a.isOpen, origin = _a.origin, source = _a.source, thumbnailSource = _a.thumbnailSource, resizeMode = _a.resizeMode, _b = _a.backgroundColor, backgroundColor = _b === void 0 ? '#000000' : _b, hideCloseButton = _a.hideCloseButton, imageStyle = _a.imageStyle, renderHeader = _a.renderHeader, renderFooter = _a.renderFooter;
         var animateConf = {
             transform: [
                 {
@@ -598,7 +598,7 @@ var ImageDetail = (function (_super) {
                     width: Platform.OS === 'ios' ? '100%' : windowWidth,
                     height: Platform.OS === 'ios' ? '100%' : windowHeight,
                 },
-            ]} source={source}/>
+            ]} source={thumbnailSource || source}/>
         </Animated.View>
         {header}
         {typeof renderFooter === 'function' && footer}

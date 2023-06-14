@@ -36,6 +36,8 @@ interface Props extends FastImageProps {
     responderRelease?: (vx?: number, scale?: number) => void;
     willClose?: () => void;
     onClose?: () => void;
+    source: FastImageProps['source'];
+    thumbnailSource?: FastImageProps['source'];
 }
 export default class ImageModal extends React.Component<Props, State> {
     private _root;

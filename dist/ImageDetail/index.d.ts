@@ -12,6 +12,7 @@ interface Props {
         height: number;
     };
     source: Source | number;
+    thumbnailSource?: Source | number;
     resizeMode?: ResizeMode;
     backgroundColor?: string;
     swipeToDismiss?: boolean;

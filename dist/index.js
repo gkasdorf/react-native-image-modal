@@ -104,7 +104,7 @@ var ImageModal = (function (_super) {
             }} style={[{ alignSelf: 'baseline', backgroundColor: imageBackgroundColor }]}>
         <Animated.View renderToHardwareTextureAndroid={renderToHardwareTextureAndroid === false ? false : true} style={{ opacity: this._originImageOpacity }}>
           <TouchableOpacity activeOpacity={1} style={{ alignSelf: 'baseline' }} onPress={this._open} onLongPress={onLongPressOriginImage}>
-            <FastImage {...this.props}/>
+            <FastImage {...this.props} source={this.props.thumbnailSource || this.props.source}/>
           </TouchableOpacity>
         </Animated.View>
         <ImageDetail ref={modalRef} renderToHardwareTextureAndroid={renderToHardwareTextureAndroid} isTranslucent={isTranslucent} isOpen={isOpen} origin={origin} source={source} resizeMode={modalImageResizeMode || resizeMode} backgroundColor={overlayBackgroundColor} swipeToDismiss={swipeToDismiss} hideCloseButton={hideCloseButton} imageStyle={modalImageStyle} renderHeader={renderHeader} renderFooter={renderFooter} onTap={onTap} onDoubleTap={onDoubleTap} onLongPress={onLongPress} didOpen={didOpen} onMove={onMove} responderRelease={responderRelease} willClose={willClose} onClose={this._onClose}/>

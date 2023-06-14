@@ -40,6 +40,8 @@ interface Props extends FastImageProps {
   responderRelease?: (vx?: number, scale?: number) => void;
   willClose?: () => void;
   onClose?: () => void;
+  source: FastImageProps['source'];
+  thumbnailSource?: FastImageProps['source'];
 }
 export default class ImageModal extends React.Component<Props, State> {
   private _root: View | null = null;
@@ -170,7 +172,7 @@ export default class ImageModal extends React.Component<Props, State> {
             onPress={this._open}
             onLongPress={onLongPressOriginImage}
           >
-            <FastImage {...this.props} />
+            <FastImage {...this.props} source={this.props.thumbnailSource || this.props.source} />
           </TouchableOpacity>
         </Animated.View>
         <ImageDetail
