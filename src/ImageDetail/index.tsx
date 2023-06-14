@@ -12,6 +12,7 @@ import {
   PanResponderInstance,
   StatusBar,
   Easing,
+  Platform,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import type { Source, ResizeMode, ImageStyle } from 'react-native-fast-image';
@@ -704,8 +705,8 @@ export default class ImageDetail extends React.Component<Props> {
       <View
         style={{
           overflow: 'hidden',
-          width: '100%',
-          height: '100%',
+          width: windowWidth,
+          height: windowHeight,
         }}
         {...(this._imagePanResponder ? this._imagePanResponder.panHandlers : undefined)}
       >
@@ -719,8 +720,8 @@ export default class ImageDetail extends React.Component<Props> {
             style={[
               imageStyle,
               {
-                width: '100%',
-                height: '100%',
+                width: Platform.OS === 'ios' ? '100%' : windowWidth,
+                height: Platform.OS === 'ios' ? '100%' : windowHeight,
               },
             ]}
             source={source}

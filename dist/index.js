@@ -99,7 +99,9 @@ var ImageModal = (function (_super) {
         var _c = this.state, isOpen = _c.isOpen, origin = _c.origin;
         return (<View ref={function (component) {
                 _this._root = component;
-            }} onLayout={function () { }} style={[{ alignSelf: 'baseline', backgroundColor: imageBackgroundColor }]}>
+            }} onLayout={function () {
+                _this._setOrigin();
+            }} style={[{ alignSelf: 'baseline', backgroundColor: imageBackgroundColor }]}>
         <Animated.View renderToHardwareTextureAndroid={renderToHardwareTextureAndroid === false ? false : true} style={{ opacity: this._originImageOpacity }}>
           <TouchableOpacity activeOpacity={1} style={{ alignSelf: 'baseline' }} onPress={this._open} onLongPress={onLongPressOriginImage}>
             <FastImage {...this.props}/>

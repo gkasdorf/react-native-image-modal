@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Text, Dimensions, Animated, PanResponder, Modal, SafeAreaView, StatusBar, Easing, } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text, Dimensions, Animated, PanResponder, Modal, SafeAreaView, StatusBar, Easing, Platform, } from 'react-native';
 import FastImage from 'react-native-fast-image';
 var LONG_PRESS_TIME = 800;
 var DOUBLE_CLICK_INTERVAL = 250;
@@ -587,16 +587,16 @@ var ImageDetail = (function (_super) {
       </Animated.View>);
         var content = (<View style={{
                 overflow: 'hidden',
-                width: '100%',
-                height: '100%',
+                width: windowWidth,
+                height: windowHeight,
             }} {...(this._imagePanResponder ? this._imagePanResponder.panHandlers : undefined)}>
         {background}
         <Animated.View style={animateConf} renderToHardwareTextureAndroid={renderToHardwareTextureAndroid === false ? false : true}>
           <FastImage resizeMode={resizeMode} style={[
                 imageStyle,
                 {
-                    width: '100%',
-                    height: '100%',
+                    width: Platform.OS === 'ios' ? '100%' : windowWidth,
+                    height: Platform.OS === 'ios' ? '100%' : windowHeight,
                 },
             ]} source={source}/>
         </Animated.View>
